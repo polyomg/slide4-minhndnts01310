@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<h2>Databinding</h2>
+
+<h th:text="${message}"></h>
+
+<form th:action="@{/student/save}" th:object="${student}" method="post">
+    
+    Email Address:
+    <input th:field="*{id}" th:errorclass="is-invalid">
+    <i th:errors="*{id}"></i><br>
+    
+    Fullname:
+    <input th:field="*{fullname}" th:errorclass="is-invalid">
+    <i th:errors="*{fullname}"></i><br>
+    
+    Gender:
+    <input th:field="*{gender}" type="radio" th:value="true"> Male
+    <input th:field="*{gender}" type="radio" th:value="false"> Female
+    <i th:errors="*{gender}"></i><br>
+    
+    Birthday:
+    <input th:field="*{birthday}" th:errorclass="is-invalid">
+    <i th:errors="*{birthday}"></i><br>
+    
+    Photo:
+    <input th:field="*{photo}" th:errorclass="is-invalid">
+    <i th:errors="*{photo}"></i><br>
+    
+    Average Marks:
+    <input th:field="*{marks}" th:errorclass="is-invalid">
+    <i th:errors="*{marks}"></i><br>
+    
+    <button>Save</button>
+    
+</form>
+</body>
+</html>
